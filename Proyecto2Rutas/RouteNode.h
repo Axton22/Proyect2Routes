@@ -4,16 +4,16 @@
 
 using namespace std;
 
-class RuteNode {
+class RouteNode {
 private:
 	string name;
 	PointList pointList;
-	RuteNode* next;
-	RuteNode* prev;
+	RouteNode* next;
+	RouteNode* prev;
 
 public:
-	RuteNode() {}
-	RuteNode(string _name);
+	RouteNode() {}
+	RouteNode(string _name);
 
 	void setName(string _name);
 	string getName();
@@ -21,11 +21,11 @@ public:
 	void setPointList(PointList _pointList);
 	PointList& getPointList();
 
-	void setNext(RuteNode* _next);
-	RuteNode* getNext();
+	void setNext(RouteNode* _next);
+	RouteNode* getNext();
 
-	void setPrev(RuteNode* _prev);
-	RuteNode* getPrev();
+	void setPrev(RouteNode* _prev);
+	RouteNode* getPrev();
 
 
 };

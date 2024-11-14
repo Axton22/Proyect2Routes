@@ -25,7 +25,9 @@ public:
 	void setY(int _y);
 	int getY();
 
+	void setNext(PointNode* _next);
 	PointNode* getNext();
+	void setPrev(PointNode* _prev);
 	PointNode* getPrev();
 
 };

@@ -40,9 +40,19 @@ int PointNode::getY()
 	return y;
 }
 
+void PointNode::setNext(PointNode* _next)
+{
+	this->next = _next;
+}
+
 PointNode* PointNode::getNext()
 {
 	return this->next;
+}
+
+void PointNode::setPrev(PointNode* _prev)
+{
+	this->prev = _prev;
 }
 
 PointNode* PointNode::getPrev()

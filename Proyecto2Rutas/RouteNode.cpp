@@ -2,6 +2,7 @@
 
 RouteNode::RouteNode(string _name)
 {
+	color = sf::Color(rand() % 256, rand() % 256, rand() % 256);
 	this->name = _name;
 }
 
@@ -43,4 +44,9 @@ void RouteNode::setPrev(RouteNode* _prev)
 RouteNode* RouteNode::getPrev()
 {
 	return this->prev;
+}
+
+const sf::Color& RouteNode::getColor()
+{
+	return color;
 }

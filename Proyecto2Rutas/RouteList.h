@@ -5,6 +5,7 @@ class RouteList {
 
 private:
 	RouteNode* head;
+	PointList pointList;
 
 public:
 	RouteList();
@@ -13,7 +14,7 @@ public:
 	RouteNode* searchRoute(string name);
 	bool isUniqueName(string name);
 	void insertPointToRoute(const string& routeName, const string& pointName, int x, int y);
-	void removeRoute(string name);
+	bool removeRoute(string name);
 	void showRoutes();
 
 	RouteNode* getHead();

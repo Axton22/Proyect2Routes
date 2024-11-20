@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "PointList.h"
+#include <SFML/Graphics/Shader.hpp>
 
 using namespace std;
 
@@ -10,6 +11,7 @@ private:
 	PointList pointList;
 	RouteNode* next;
 	RouteNode* prev;
+	sf::Color color;
 
 public:
 	RouteNode() {}
@@ -27,5 +29,6 @@ public:
 	void setPrev(RouteNode* _prev);
 	RouteNode* getPrev();
 
+	const sf::Color& getColor();
 
 };

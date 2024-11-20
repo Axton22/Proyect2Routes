@@ -37,7 +37,7 @@ bool RouteList::isUniqueName(string name)
 {
     RouteNode* current = head;
     while (current != nullptr) {
-        if (!current->getPointList().isUniqueName(name)) {
+        if (current->getName() == name) {
             return false;
         }
         current = current->getNext();
@@ -51,25 +51,29 @@ void RouteList::insertPointToRoute(const string& routeName, const string& pointN
     while (current != nullptr && current->getName() != routeName) {
         current = current->getNext();
     }
+
     if (current != nullptr) {
-        string name;
-        cout << "Nombre del punto: ";
-        cin >> name;
-        if (isUniqueName(name)) {
-            current->getPointList().insertPoint(routeName, x, y);
+        if (current->getPointList().isUniqueName(pointName)) {
+            current->getPointList().insertPoint(pointName, x, y);
+            cout << "Punto insertado: " << pointName << " en (" << x << ", " << y << ")" << endl << endl;
+        }
+        else
+        {
+            cout << "El punto: " << pointName << " ya fue ingresado anteriormente " << endl 
+                << "\nHaz clic en el mapa si deseas agregar un nuevo punto o pulsa 'ENTER' para finalizar la ruta" << endl;
         }
     }
 }
 
-void RouteList::removeRoute(string name)
+bool RouteList::removeRoute(string name)
 {
-    if (head == nullptr) return;
+    if (head == nullptr) return false;
 
     if (head->getName() == name) {
         RouteNode* aux = head;
         head = head->getNext();
         delete aux;
-        return;
+        return true;
     }
 
     RouteNode* current = head->getNext();
@@ -79,10 +83,11 @@ void RouteList::removeRoute(string name)
             current->getPrev()->setNext(current->getNext());
             current->getNext()->setPrev(current->getPrev());
             delete current;
-            return;
+            return true;
         }
         current = current->getNext();
     }
+    return false;
 
 }
 
